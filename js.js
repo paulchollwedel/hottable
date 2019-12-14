@@ -1,20 +1,22 @@
+console.log("hi")
 
-$(document).on("ready", function() {
-    console.log("hi")
-});
-$(".submit").on("click", function(event){
+$(".btn").on("click", function(){
+  console.log("hello")
 
-    event.preventdefault();
+  var reservation = {
+    customerName: $("#name").val(),
+    email: $("#email").val(),
+    phone: $("#phone").val(),
+    id: $("#id").val(),
+  }
+  console.log(reservation)
 
-    var reservation = {
-      customerName: $("#name").val().trim(), 
-      email: $("#email").val().trim(), 
-      phone: $("#phone").val().trim(), 
-      id: $("#id").val().trim()
-
-    };
-
-    
-    console.log(reservation);
-
-});
+  $.post("/api/tables", reservation,
+    function(data){
+      if(data) {
+        alert("You're booked!")
+      } else {
+        alert("Sorry you are on the waiting list")
+      }
+    })
+})
