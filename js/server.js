@@ -19,10 +19,10 @@ const reservationData = [{
 
 const waitingListData = [{
 
-    customerName: "Ahmed",
-    customerEmail: "ahmed@example.com",
-    customerID: "afhaque89",
-    phoneNumber: "000-000-0000"
+    customerName: "John Smith",
+    customerEmail: "johnsmith@gmail.com",
+    customerUserName: "johnsmith",
+    phoneNumber: "000-000-0000",
 }];
 
 app.get("/reservation", function(req, res){
@@ -32,6 +32,8 @@ app.get("/reservation", function(req, res){
 app.get("/waitlist", function(req, res){
     return res.json(waitingListData);
 });
+
+
 
 
 app.listen(PORT, function(){
